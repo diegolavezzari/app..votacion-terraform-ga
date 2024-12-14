@@ -25,19 +25,19 @@ variable "cluster_name" {
 }
 
 variable "desired_capacity" {
-  description = "2"
+  description = "4"
   type        = number
   default     = 2
 }
 
 variable "min_size" {
-  description = "1"
+  description = "2"
   type        = number
   default     = 1
 }
 
 variable "max_size" {
-  description = "2"
+  description = "4"
   type        = number
   default     = 2
 }
