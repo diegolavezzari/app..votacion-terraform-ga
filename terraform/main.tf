@@ -71,7 +71,7 @@ resource "aws_eks_cluster" "cluster_vote" {
 
 # Crear un grupo de nodos EKS
 resource "aws_eks_node_group" "mi_node_group" {
-  cluster_name    = aws_eks_cluster.cluster_vote.name
+  cluster_name    = aws_eks_cluster.node_group_name.name
   node_group_name = "${var.cluster_name}-node-group"
   node_role_arn   = aws_iam_role.node_role.arn
 
