@@ -1,5 +1,6 @@
 variable "mi_subnet" {
   description = ["subnet-0167d706fb101e2ae","subnet-0072a0905f99206c2"]
+  type = list(string)
 }
 
 variable "app_replicas" {
