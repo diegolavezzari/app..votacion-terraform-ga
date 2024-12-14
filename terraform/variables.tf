@@ -24,8 +24,13 @@ variable "cluster_name" {
   type        = string
 }
 
+variable "aws_eks_cluster" {
+  description = "mi-cluster"
+  type = string  
+}
+
 variable "desired_capacity" {
-  description = "4"
+  description = "2"
   type        = number
   default     = 2
 }
@@ -33,12 +38,12 @@ variable "desired_capacity" {
 variable "min_size" {
   description = "2"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "max_size" {
   description = "4"
   type        = number
-  default     = 2
+  default     = 4
 }
 
