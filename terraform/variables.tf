@@ -1,5 +1,5 @@
 variable "mi_subnet" {
-  description = ["subnet-0167d706fb101e2ae", "subnet-0072a0905f99206c2"]
+  description = ["subnet-0167d706fb101e2ae","subnet-0072a0905f99206c2"]
 }
 
 variable "app_replicas" {
