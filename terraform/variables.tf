@@ -24,11 +24,6 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "node_group_name" {
-  description = "mi-cluster"
-  type = string  
-}
-
 variable "desired_capacity" {
   description = "2"
   type        = number
