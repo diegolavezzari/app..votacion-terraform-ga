@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = us-east-1
+  region = "us-east-1"
 }
 
 # Rol IAM para el clúster EKS
