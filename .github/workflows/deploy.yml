@@ -1,0 +1,65 @@
+name: Deploy to EKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.4.0
+
+      - name: Terraform Init
+        working-directory: ./terraform
+        run: terraform init
+
+      - name: Terraform Plan
+        working-directory: ./terraform
+        run: terraform plan
+
+      - name: Terraform Apply
+        working-directory: ./terraform
+        run: terraform apply -auto-approve
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Validate cluster readiness
+        run: |
+          aws eks describe-cluster --name cluster_vote --region us-east-1
+    
+
+      - name: Configure kubectl
+        run: |
+          aws eks update-kubeconfig --name cluster_vote --region us-east-1
+
+      - name: Wait for EKS cluster to be ready
+        run: |
+          for i in {1..10}; do
+            if aws eks describe-cluster --name cluster_vote --region us-east-1 | grep '"status": "ACTIVE"'; then
+              echo "Cluster is active."
+              break
+            fi
+            echo "Waiting for cluster to be active..."
+            sleep 30
+          done
+
+      - name: Terraform Apply
+        working-directory: ./terraform
+        run: terraform apply -auto-approve
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
+      - name: Deploy Application Manifests
+        run: |
+          kubectl apply -f ./app-vote-cat-dog/
