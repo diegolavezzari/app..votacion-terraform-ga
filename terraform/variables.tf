@@ -24,7 +24,7 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "aws_eks_cluster" {
+variable "node_group_name" {
   description = "mi-cluster"
   type = string  
 }
