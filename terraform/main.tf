@@ -78,7 +78,7 @@ resource "aws_eks_node_group" "mi_node_group" {
   subnet_ids = var.mi_subnet
 
   scaling_config {
-    desired_size = var.app_replicas
+    desired_size = var.desired_capacity
     min_size     = var.min_size
     max_size     = var.max_size
   }
