@@ -2,7 +2,7 @@
 cluster_name = "Vote-Cat-Dog"
 
 # IDs de subnets
-mi_subnet = ["subnet-0167d706fb101e2ae"]
+mi_subnet = ["subnet-0167d706fb101e2ae", "subnet-0072a0905f99206c2"]
 
 # Número de réplicas para la aplicación
 app_replicas = 3
