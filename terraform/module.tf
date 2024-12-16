@@ -4,7 +4,7 @@ module "eks" {
 
   # Nombre del clúster
   cluster_name    = var.cluster_name
-  cluster_version = "1.31"
+  cluster_version = "1.32"
 
   # Habilitar acceso público al endpoint del clúster
   cluster_endpoint_public_access = true
