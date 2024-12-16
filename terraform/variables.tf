@@ -21,7 +21,7 @@ variable "security_group_ids" {
 }
 
 variable "cluster_name" {
-  description = "Vote-Cat-Dog"
+  description = "Vote-Cat-Dog-app"
   type        = string
 }
 
