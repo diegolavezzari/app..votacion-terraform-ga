@@ -2,7 +2,9 @@ name: Deploy to EKS
 
 on:
   workflow_dispatch:
-    - main
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
