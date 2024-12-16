@@ -1,11 +1,8 @@
 name: Deploy to EKS
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-
+  workflow_dispatch: # Permite que el flujo de trabajo sea disparado manualmente
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
