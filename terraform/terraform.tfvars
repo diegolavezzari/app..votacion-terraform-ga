@@ -2,16 +2,21 @@
 cluster_name = "Vote-Cat-Dog"
 
 # IDs de subnets
-mi_subnet = ["subnet-0167d706fb101e2ae", "subnet-0072a0905f99206c2"]
+mi_subnet = [
+  "subnet-0dc31742c5e7303b2", # Private subnet 1
+  "subnet-073466fb88c926542", # Public subnet 1
+  "subnet-022424d38893f82e2", # Private subnet 2
+  "subnet-0804dd61a2ab23cbe"  # Public subnet 2
+]
 
 # Número de réplicas para la aplicación
 app_replicas = 3
 
 # ID de la VPC
-vpc_id = "vpc-0889bae2746549098"
+vpc_id = "vpc-07501a4fd9aabe6b5"
 
 # IDs de grupos de seguridad
-security_group_ids = ["sg-003a42ddbcb9cf824"]
+security_group_ids = []
 
 # Configuración del grupo de nodos
 desired_capacity = 2
